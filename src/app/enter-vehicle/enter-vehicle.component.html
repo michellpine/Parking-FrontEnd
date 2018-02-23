@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <h2 class="title">Ingresar Vehiculos</h2>
+  <hr>
+  <div class="form-group">
+    <label for="license" class="title items">Placa</label>
+    <input #license    
+      type="text" 
+      class="form-control">
+    <div *ngIf="license.touched && license.invalid" class="alert alert-danger">
+      <div *ngIf="license.errors.required">Ingresar la placa</div>
+      <div *ngIf="license.errors.cannotContainSpace">La placa no debe tener espacios</div>
+    </div>
+    <br />
+    <button class="btn btn-primary center-block " (click)=" enterVehicle(license)">Ingresar</button>
+  </div>
+</form>

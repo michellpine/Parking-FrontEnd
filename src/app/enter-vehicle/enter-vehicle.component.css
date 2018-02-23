@@ -1,0 +1,25 @@
+
+.title {
+    text-align: center;
+    font-family: 'Georgia', sans-serif;
+}
+
+hr {
+    height: 1px;
+    border-top: 0.5px solid #5A5A5A;
+}
+
+.items {
+    font-size: 1.5em;
+    color: #393939;   
+}
+
+.btn-primary {
+    font-size: 1.4em;
+    font-family: 'Georgia', sans-serif;
+    background-color: #015249;
+}
+
+.form {
+    font-family: 'Georgia', sans-serif;
+}

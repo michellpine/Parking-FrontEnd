@@ -1,0 +1,21 @@
+<h2 class="title">Vehiculos Parqueados</h2>
+<br>
+<div class="scroll-body ">
+  <table class="table js-pscroll">
+  <thead>
+    <tr>
+        <th>Placa</th>
+        <th>Tipo Vehiculo</th>
+       <th>Hora Entrada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehicle of vehicles">
+      <td>{{ vehicle.vehicle.license }}</td>
+      <td>{{ vehicle.vehicleType }}</td>
+      <td>{{ vehicle.dateArrive }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
