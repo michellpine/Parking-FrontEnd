@@ -11,7 +11,7 @@ export class VehiclesParkingComponent {
 
   private url = 'http://localhost:8282/api/vehicles/';
 
-  constructor(private http: Http){
+  constructor(private http: Http) {
     http.get(this.url)
       .subscribe(response => {
         console.log(response.json());

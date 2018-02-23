@@ -1,16 +1,35 @@
-<form [formGroup]="form">
-  <h2 class="title">Ingresar Vehiculos</h2>
-  <hr>
-  <div class="form-group">
-    <label for="license" class="title items">Placa</label>
-    <input #license    
-      type="text" 
-      class="form-control">
-    <div *ngIf="license.touched && license.invalid" class="alert alert-danger">
-      <div *ngIf="license.errors.required">Ingresar la placa</div>
-      <div *ngIf="license.errors.cannotContainSpace">La placa no debe tener espacios</div>
+<div class="tab">
+  <button class="tablinks" (click)="tabVehicle('car')"><img src="assets/car.png" alt="" height="102" width="102"></button>
+  <button class="tablinks" (click)="tabVehicle('bike')">Moto</button>
+</div>
+
+<div id="car" class="tabcontent">
+  <form [formGroup]="form">
+    <h2 class="title">Ingresar Carro</h2>
+    <hr>
+    <div class="form-group">
+      <label for="license" class="title items">Placa</label>
+      <input #licenseCar type="text" class="form-control">
+      <br />
+      <button class="btn btn-primary center-block " 
+      (click)="enterCar(licenseCar)">Ingresar</button>
     </div>
-    <br />
-    <button class="btn btn-primary center-block " (click)=" enterVehicle(license)">Ingresar</button>
-  </div>
-</form>
+  </form>
+</div>
+
+<div id="bike" class="tabcontent">
+  <form [formGroup]="form">
+    <h2 class="title">Ingresar Moto</h2>
+    <hr>
+    <div class="form-group">
+      <label for="license" class="title items">Placa</label>
+      <input #licenseBike type="text" class="form-control">
+      <br>
+      <label for="license" class="title items">Cilindraje</label>
+      <input #cc type="number" class="form-control">
+      <br />
+      <button class="btn btn-primary center-block " 
+      (click)="enterBike(licenseBike, cc)">Ingresar</button>
+    </div>
+  </form>
+</div>
