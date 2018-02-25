@@ -1,7 +1,7 @@
 import { Component, } from '@angular/core';
-import { Http, Headers } from '@angular/http';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 import { LicenseValidators } from './license.validators';
+import { ParkingGuardService } from '../services/parking-guard.service';
 declare var jquery: any;
 declare var $: any;
 
@@ -13,38 +13,45 @@ declare var $: any;
 export class EnterVehicleComponent  {
   form: FormGroup;
   vehicles: any[];
-  type: string;
-  private url = 'http://localhost:8282/api/vehicles/';
 
-  constructor(private http: Http, fb: FormBuilder) {
+  constructor(private service: ParkingGuardService, fb: FormBuilder) {
     this.form = fb.group({
       license: ['',
         Validators.required,
         LicenseValidators.cannotContainSpace
       ],
+      engine: [
+        Validators.required
+      ]
     });
   }
 
   enterCar(license: HTMLInputElement) {
-    const headers = new Headers({'Content-Type': 'application/json'});
     let car = { license: license.value, type: 'CAR' };
     license.value = ' ';
-      this.http.post(this.url, car, {headers: headers} )
+      this.service.enterCar(car)
       .subscribe(response => {
         console.log(response.toString());
+      }, (error: Response) => {
+          if (error.status === 500) {
+            alert("Vehicle cannot enter, there are not more cells available for cars");
+          }
       });
   }
 
   enterBike(license: HTMLInputElement, cc: HTMLInputElement) {
-    const headers = new Headers({'Content-Type': 'application/json'});
     let bike = { license: license.value, type: 'BYKE', engine: cc.value };
     license.value = ' ';
     cc.value = ' ';
-    this.http.post(this.url, bike, {headers: headers} )
+    this.service.enterBike(bike)
     .subscribe(response => {
       console.log(response.toString());
-    });
-  }
+    }, (error: Response) => {
+      if (error.status === 500) {
+        alert("Vehicle cannot enter, there are not more cells available for motorbikes");
+      }
+  });
+}
 
   tabVehicle(vehicle) {
    var i, tabcontent, tablinks;

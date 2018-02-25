@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ParkingTicketComponent } from '../parking-ticket/parking-ticket.component';
+import { ParkingGuardService } from '../services/parking-guard.service';
 
 @Component({
   selector: 'app-vehicles-parking',
@@ -7,12 +8,11 @@ import { Http } from '@angular/http';
   styleUrls: ['./vehicles-parking.component.css']
 })
 export class VehiclesParkingComponent implements OnInit{
+
   vehicles: any[];
   interval: any;
-
-  private url = 'http://localhost:8282/api/vehicles/';
-
-  constructor(private http: Http) {
+  
+  constructor(private service: ParkingGuardService, private ticket: ParkingTicketComponent) {
   }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class VehiclesParkingComponent implements OnInit{
   }
 
   parkigVehicles() {
-    this.http.get(this.url)
+    this.service.parkigVehicles()
     .subscribe(response => {
       console.log(response.json());
       this.vehicles = response.json();
@@ -31,11 +31,8 @@ export class VehiclesParkingComponent implements OnInit{
   }
 
   outVehicle(id, vehicle) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    this.http.patch(this.url + id, vehicle)
-    .subscribe(response => {
-      console.log(response.json());
-      this.vehicles = response.json();
-    });
+    console.log('quiero salir');
+    this.ticket.reciveData(id, vehicle);
   }
 }
+

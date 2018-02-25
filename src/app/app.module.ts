@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { EnterVehicleComponent } from './enter-vehicle/enter-vehicle.component';
 import { VehiclesParkingComponent } from './vehicles-parking/vehicles-parking.component';
 import { ParkingTicketComponent } from './parking-ticket/parking-ticket.component';
+import { ParkingGuardService } from './services/parking-guard.service';
+
 
 
 @NgModule({
@@ -22,7 +24,10 @@ import { ParkingTicketComponent } from './parking-ticket/parking-ticket.componen
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ParkingTicketComponent,
+    ParkingGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,24 +8,20 @@
     </div>
   </div>
   <div class="box b ticket">
-    <div>
-      <label>Placa: </label>
-      <label>XXX</label>
+    <div>Placa: 
+      <label (mandando)="reciveData($event)">{{ message }}</label>
     </div>
-    
     <div>
       <label>Hora Entrada:</label>
       <label>14:00</label>
     </div>
-
     <div>
       <label>Hora Salida:</label>
       <label>14:00</label>
     </div>
-
   </div>
 </div>
 <br>
 <div>
-    <button class="btn btn-primary center-block ">Cobrar</button>
+    <button class="btn btn-primary center-block " (click)="onClick($event)">Cobrar</button>
 </div>
