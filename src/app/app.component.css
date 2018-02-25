@@ -1,7 +1,6 @@
 body {
 	font-weight: 200;
     line-height: 2em;
-    font-weight: 200;
     text-align: center;
 }
 
@@ -19,13 +18,13 @@ body {
 	
 }
 .site-logo a.brand:hover {
-	text-decoration:none;
+	text-decoration: none;
 }
 
 .navbar {
     margin-bottom: 0;
+    border: none;
     background-color: #015249;
-    opacity: 0.9;
 }
 
 .navbar-brand {
@@ -46,16 +45,16 @@ body {
 
 html {
     overflow-y:hidden;
-    padding-top: 3%;
+    overflow-x:hidden;
+    padding-top: 4%;
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 2%;
-    /*background-image: url("assets/littleParking.jpg");
+    background-image: url("assets/littleParking.jpg");
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
-    */
+    
 }
 
 
@@ -70,8 +69,7 @@ html {
     background-color: #F7F5F4;
     color: black;
     border-radius: 7px;
-    padding: 10px;
-    font-size: 100%;
+    padding: 2%;
 }
 
 .a {
@@ -87,11 +85,19 @@ html {
     grid-row: 2;
 }
 
-@media only screen and  (max-width: 1000px) {
+@media (max-width: 1034px) {
     html {
         padding-top: 13%;
         padding-left: 3%;
         padding-right: 3%;
         padding-bottom: 2%;
+    }
+}
+
+
+@media (min-width: 350px)  and (max-width: 1024px){
+    html {
+        padding-top: 23%;
+        padding-bottom: 3%;
     }
 }
