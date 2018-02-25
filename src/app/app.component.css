@@ -5,17 +5,17 @@ body {
 }
 
 /* --- tittle --- */
-.site-logo {	
+.site-logo {
 	margin-top:30px;
     margin-bottom:30px;
 }
 
 .site-logo a.brand {
-    color: white;	
+    color: white;
 	font-size: 30px;
 	font-family: 'Georgia', sans-serif;
 	font-weight: 800;
-	
+
 }
 .site-logo a.brand:hover {
 	text-decoration: none;
@@ -54,7 +54,7 @@ html {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 }
 
 

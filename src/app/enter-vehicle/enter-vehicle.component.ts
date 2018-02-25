@@ -59,4 +59,3 @@ export class EnterVehicleComponent  {
    document.getElementById(vehicle).style.display = 'block';
   }
 }
-

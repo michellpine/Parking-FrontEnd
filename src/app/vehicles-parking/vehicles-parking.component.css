@@ -12,10 +12,10 @@
     -webkit-box-shadow: 0 0px 30px 0px rgba(0, 0, 0, 0.15);
     -o-box-shadow: 0 0px 30px 0px rgba(0, 0, 0, 0.15);
     -ms-box-shadow: 0 0px 30px 0px rgba(0, 0, 0, 0.15);
-    
+
 }
 
-.table thead {    
+.table thead {
     font-family: 'Georgia', sans-serif;
     text-align: center;
     color: white;

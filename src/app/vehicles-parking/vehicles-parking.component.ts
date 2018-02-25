@@ -17,12 +17,12 @@ export class VehiclesParkingComponent implements OnInit{
 
   ngOnInit() {
     this.parkigVehicles();
-    this.interval = setInterval(() => { 
-        this.parkigVehicles(); 
+    this.interval = setInterval(() => {
+        this.parkigVehicles();
     }, 2000);
   }
 
-  parkigVehicles() { 
+  parkigVehicles() {
     this.http.get(this.url)
     .subscribe(response => {
       console.log(response.json());
