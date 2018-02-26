@@ -15,36 +15,31 @@ export class ParkingTicketComponent implements OnInit {
   constructor(private service: ParkingGuardService) { }
 
   ngOnInit() {
-    /*this.onClick();
-    this.interval = setInterval(() => {
-        this.onClick();
-    }, 2000);*/
   }
 
   reciveData(id, vehicle) {
     this.idRecive = id;
     this.vehicleRecive = vehicle;
-    console.log('recibiendo data'+this.idRecive+' '+JSON.stringify(this.vehicleRecive));
+    console.log('recibiendo data' + this.idRecive + ' ' + JSON.stringify(this.vehicleRecive));
     const headers = new Headers({'Content-Type': 'application/json'});
     this.service.outVehicle(this.idRecive, this.vehicleRecive)
     .subscribe(response => {
       console.log(response.json());
     });
-    console.log("sali");
-    
+    console.log('sali');
   }
 
-  outVehicle(id?, vehicle?){
+  outVehicle(id?, vehicle?) {
     const headers = new Headers({'Content-Type': 'application/json'});
     this.service.outVehicle(this.idRecive, this.vehicleRecive)
     .subscribe(response => {
       console.log(response.json());
     });
-    console.log("sali");
+    console.log('sali');
   }
 
   onClick() {
     this.outVehicle();
   }
-    
+
 }

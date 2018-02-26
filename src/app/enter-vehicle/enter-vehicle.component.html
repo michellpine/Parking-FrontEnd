@@ -12,6 +12,8 @@
       <input #licenseCar formControlName="license" type="text" class="form-control">
       <div *ngIf="license.touched && license.invalid" class="alert alert-danger">
         <div *ngIf="license.errors.required">Ingresar la placa.</div>
+        <div *ngIf="license.errors.minlength">La licencia es de maximo 6 caracteres {{ license.errors.minlength.requiredLength}}</div>
+        <div *ngIf="license.errors.maxlength">La licencia es de maximo 6 caracteres {{ license.errors.maxlength.requiredLength}}</div>
         <div *ngIf="license.errors.cannotContainSpace">La placa no puede contener espacios</div>
       </div>
       <br />
@@ -31,6 +33,8 @@
       <input #licenseBike formControlName="license" type="text" class="form-control"/>
       <div *ngIf="license.touched && license.invalid" class="alert alert-danger">
         <div *ngIf="license.errors.required">Ingresar la placa.</div>
+        <div *ngIf="license.errors.minlength">La licencia es de maximo 6 caracteres {{ license.errors.minlength.requiredLength}}</div>
+        <div *ngIf="license.errors.maxlength">La licencia es de maximo 6 caracteres {{ license.errors.maxlength.requiredLength}}</div>
         <div *ngIf="license.errors.cannotContainSpace">La placa no puede contener espacios</div>
       </div>
       <br>
@@ -38,6 +42,8 @@
       <input #engine type="number" formControlName="engine" class="form-control">
       <div *ngIf="engine.touched && engine.invalid" class="alert alert-danger">
           <div *ngIf="engine.errors.required">Ingresar el cilindraje.</div>
+          <div *ngIf="engine.errors.minlength">El cilindraje es de maximo 6 caracteres {{ engine.errors.minlength.requiredLength}}</div>
+          <div *ngIf="engine.errors.maxlength">El cilindraje es de maximo 6 caracteres {{ engine.errors.maxlength.requiredLength}}</div>
           <div *ngIf="engine.errors.cannotContainSpace">El cilindraje no puede contener espacios</div>
         </div>
       <br />

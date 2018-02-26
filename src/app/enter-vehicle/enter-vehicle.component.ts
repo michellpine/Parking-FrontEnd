@@ -19,12 +19,16 @@ export class EnterVehicleComponent  {
       license: ['',
         Validators.compose([
           Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(6),
           LicenseValidators.cannotContainSpace
         ])
       ],
       engine: [
         Validators.compose([
           Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(4),
           LicenseValidators.cannotContainSpace
         ])
       ]
@@ -51,7 +55,7 @@ export class EnterVehicleComponent  {
 }
 
   tabVehicle(vehicle) {
-   var i, tabcontent, tablinks;
+   let i, tabcontent, tablinks;
    tabcontent = document.getElementsByClassName('tabcontent');
    for (i = 0; i < tabcontent.length; i++) {
        tabcontent[i].style.display = 'none';
@@ -64,11 +68,11 @@ export class EnterVehicleComponent  {
   }
 
   get license () {
-    return this.form.get('license').touched;
+    return this.form.get('license');
   }
 
   get engine () {
-    return this.form.get('engine').touched;
+    return this.form.get('engine');
   }
 }
 

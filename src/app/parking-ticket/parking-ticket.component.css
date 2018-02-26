@@ -11,6 +11,7 @@ hr {
 }
 
 .wrapper {
+    padding-top: 2%;
     padding-left: 7%;
     display: grid;
     grid-gap: 10px;
@@ -22,11 +23,12 @@ hr {
     color: #fff;
     border-radius: 5px;
     padding: 20px;
-    font-size: 150%;
 }
 
 .a {
     width: 80%;
+    height: 80%;
+    padding-top: 8%;
     border: 1px solid #015249;
     color: #015249;
     grid-column: 1 ;
@@ -56,7 +58,7 @@ hr {
 }
 
 .btn-primary {
-    font-size: 1.4em;
+    font-size: 15px;
     font-family: 'Georgia', sans-serif;
     background-color: #015249;
 }

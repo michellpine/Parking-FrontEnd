@@ -7,11 +7,10 @@ import { ParkingGuardService } from '../services/parking-guard.service';
   templateUrl: './vehicles-parking.component.html',
   styleUrls: ['./vehicles-parking.component.css']
 })
-export class VehiclesParkingComponent implements OnInit{
-
+export class VehiclesParkingComponent implements OnInit {
   vehicles: any[];
   interval: any;
-  
+
   constructor(private service: ParkingGuardService, private ticket: ParkingTicketComponent) {
   }
 
