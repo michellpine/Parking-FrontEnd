@@ -17,11 +17,16 @@ export class EnterVehicleComponent  {
   constructor(private service: ParkingGuardService, fb: FormBuilder) {
     this.form = fb.group({
       license: ['',
-        Validators.required,
-        LicenseValidators.cannotContainSpace
+        Validators.compose([
+          Validators.required,
+          LicenseValidators.cannotContainSpace
+        ])
       ],
       engine: [
-        Validators.required
+        Validators.compose([
+          Validators.required,
+          LicenseValidators.cannotContainSpace
+        ])
       ]
     });
   }
@@ -32,25 +37,17 @@ export class EnterVehicleComponent  {
       this.service.enterCar(car)
       .subscribe(response => {
         console.log(response.toString());
-      }, (error: Response) => {
-          if (error.status === 500) {
-            alert("Vehicle cannot enter, there are not more cells available for cars");
-          }
       });
   }
 
-  enterBike(license: HTMLInputElement, cc: HTMLInputElement) {
-    let bike = { license: license.value, type: 'BYKE', engine: cc.value };
-    license.value = ' ';
+  enterBike(licenseBike: HTMLInputElement, cc: HTMLInputElement) {
+    let bike = { license: licenseBike.value, type: 'BYKE', engine: cc.value };
+    licenseBike.value = ' ';
     cc.value = ' ';
     this.service.enterBike(bike)
     .subscribe(response => {
       console.log(response.toString());
-    }, (error: Response) => {
-      if (error.status === 500) {
-        alert("Vehicle cannot enter, there are not more cells available for motorbikes");
-      }
-  });
+    });
 }
 
   tabVehicle(vehicle) {
@@ -65,4 +62,13 @@ export class EnterVehicleComponent  {
    }
    document.getElementById(vehicle).style.display = 'block';
   }
+
+  get license () {
+    return this.form.get('license').touched;
+  }
+
+  get engine () {
+    return this.form.get('engine').touched;
+  }
 }
+

@@ -10,19 +10,33 @@ import { ParkingGuardService } from '../services/parking-guard.service';
 export class ParkingTicketComponent implements OnInit {
   interval: any;
   idRecive: string;
+  vehicleRecive: any[];
 
   constructor(private service: ParkingGuardService) { }
 
   ngOnInit() {
-    /*this.interval = setInterval(() => {
-        this.parkigVehicles();
-    }, 1000);
-    */
+    /*this.onClick();
+    this.interval = setInterval(() => {
+        this.onClick();
+    }, 2000);*/
   }
 
   reciveData(id, vehicle) {
+    this.idRecive = id;
+    this.vehicleRecive = vehicle;
+    console.log('recibiendo data'+this.idRecive+' '+JSON.stringify(this.vehicleRecive));
     const headers = new Headers({'Content-Type': 'application/json'});
-    this.service.outVehicle(id, vehicle)
+    this.service.outVehicle(this.idRecive, this.vehicleRecive)
+    .subscribe(response => {
+      console.log(response.json());
+    });
+    console.log("sali");
+    
+  }
+
+  outVehicle(id?, vehicle?){
+    const headers = new Headers({'Content-Type': 'application/json'});
+    this.service.outVehicle(this.idRecive, this.vehicleRecive)
     .subscribe(response => {
       console.log(response.json());
     });
@@ -30,6 +44,7 @@ export class ParkingTicketComponent implements OnInit {
   }
 
   onClick() {
+    this.outVehicle();
   }
-
+    
 }

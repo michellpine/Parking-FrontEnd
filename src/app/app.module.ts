@@ -8,6 +8,7 @@ import { EnterVehicleComponent } from './enter-vehicle/enter-vehicle.component';
 import { VehiclesParkingComponent } from './vehicles-parking/vehicles-parking.component';
 import { ParkingTicketComponent } from './parking-ticket/parking-ticket.component';
 import { ParkingGuardService } from './services/parking-guard.service';
+import { AppError } from './common/app-error';
 
 
 
@@ -26,7 +27,8 @@ import { ParkingGuardService } from './services/parking-guard.service';
   ],
   providers: [
     ParkingTicketComponent,
-    ParkingGuardService
+    ParkingGuardService,
+    AppError
   ],
   bootstrap: [AppComponent]
 })

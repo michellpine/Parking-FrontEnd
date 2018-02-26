@@ -30,8 +30,7 @@ export class VehiclesParkingComponent implements OnInit{
     });
   }
 
-  outVehicle(id, vehicle) {
-    console.log('quiero salir');
+  sendData(id, vehicle) {
     this.ticket.reciveData(id, vehicle);
   }
 }

@@ -4,20 +4,18 @@
   <div class="box a title">
     <label class="sub_title">Valor a pagar</label>
     <div>
-      <label class="value"> $ 5000</label>
+      <label class="value"> ${{ vehicleRecive?.valueToPay }}</label>
     </div>
   </div>
   <div class="box b ticket">
     <div>Placa: 
-      <label (mandando)="reciveData($event)">{{ message }}</label>
+      <label>{{ vehicleRecive?.vehicle.license }}</label>
     </div>
-    <div>
-      <label>Hora Entrada:</label>
-      <label>14:00</label>
+    <div>Hora Entrada:
+      <label>{{ vehicleRecive?.dateArrive }}</label>
     </div>
-    <div>
-      <label>Hora Salida:</label>
-      <label>14:00</label>
+    <div>Hora Salida:
+      <label>{{ vehicleRecive?.dateOut }}</label>
     </div>
   </div>
 </div>

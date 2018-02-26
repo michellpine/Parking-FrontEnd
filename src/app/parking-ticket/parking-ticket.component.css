@@ -52,6 +52,7 @@ hr {
 
 .ticket {
     font-family: 'Georgia', sans-serif;
+    font-size: 20px;
 }
 
 .btn-primary {
@@ -66,7 +67,7 @@ hr {
     }
 
     .value {
-        font-size: 15px;
+        font-size: 18px;
         font-family: 'Georgia';
     }
 }
