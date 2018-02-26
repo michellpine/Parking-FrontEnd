@@ -12,11 +12,8 @@ hr {
 .tab {
     float: left;
     width: 20%;
-    height: 310px;
+    height: 348px;
     border-radius: 5px;
-    color: white;
-    font-size: 18px;
-    font-family: 'Georgia', sans-serif;
     overflow: hidden;
     background-color: #015249;
 }
@@ -66,34 +63,42 @@ hr {
     border: none;
     width: 80%;
     border-left: none;
-    height: 310px;
+    height: 30px;
 }
 
-.items {
+.mat-input-container {
     font-size: 1.7em;
     color: #393939;
-    font-family: 'Georgia', sans-serif;
+    border: none;
+    border-color: #015249;
+    font-family: 'Arial', sans-serif;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
-.form {
-    font-family: 'Georgia', sans-serif;
+.mat-error {
+    margin-left: 16%;
+    font-size: 1.2em;
 }
 
-
-.btn-primary {
+.mat-raised-button {
     font-size: 1.4em;
-    font-family: 'Georgia', sans-serif;
+    font-family: 'Georgia', sans-serif;   
     background-color: #015249;
+    margin-left: 40%;
+    margin-right: 30%;
 }
 
 /* Go from zero to full opacity */
 @keyframes fadeEffect {
-    from {opacity: 0;}
+    from {opacity: 0.2;}
     to {opacity: 1;}
 }
 
-@media only screen and (max-width: 900px) {
 
+
+
+@media (min-width: 300px)  and (max-width: 700px){
     .h2 {
         font-size: 12%;
     }
@@ -102,16 +107,34 @@ hr {
         background-position: center center;
         background-repeat: no-repeat;
     }
-
     .bike {
         background-image: url("assets/bike-responsive.png");
         background-position: center center;
         background-repeat: no-repeat;
     }
 
-
-    .value {
-        font-size: 15px;
-        font-family: 'Georgia';
+    .mat-input-container {
+        font-size: 1.7em;
+        color: #393939;
+        border: none;
+        border-color: #015249;
+        font-family: 'Arial', sans-serif;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    .mat-error {
+        font-size: 1.2em;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    .mat-raised-button {
+        font-size: 1.4em;
+        font-family: 'Georgia', sans-serif;
+        background-color: #015249;
+        margin-left: 1%;
+        margin-right: 1%;
     }
 }
+

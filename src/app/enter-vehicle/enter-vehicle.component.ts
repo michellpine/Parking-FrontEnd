@@ -36,8 +36,8 @@ export class EnterVehicleComponent  {
   }
 
   enterCar(license: HTMLInputElement) {
-    let car = { license: license.value, type: 'CAR' };
-    license.value = ' ';
+    const car = { license: license.value, type: 'CAR' };
+    license.value = '';
       this.service.enterCar(car)
       .subscribe(response => {
         console.log(response.toString());
@@ -45,8 +45,8 @@ export class EnterVehicleComponent  {
   }
 
   enterBike(licenseBike: HTMLInputElement, cc: HTMLInputElement) {
-    let bike = { license: licenseBike.value, type: 'BYKE', engine: cc.value };
-    licenseBike.value = ' ';
+    const bike = { license: licenseBike.value, type: 'BYKE', engine: cc.value };
+    licenseBike.value = '';
     cc.value = ' ';
     this.service.enterBike(bike)
     .subscribe(response => {

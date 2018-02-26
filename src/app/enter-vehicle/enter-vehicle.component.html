@@ -8,16 +8,23 @@
     <h2 class="title">Ingresar Carro</h2>
     <hr>
     <div class="form-group">
-      <label for="license" class="title items">Placa</label>
-      <input #licenseCar formControlName="license" type="text" class="form-control">
-      <div *ngIf="license.touched && license.invalid" class="alert alert-danger">
-        <div *ngIf="license.errors.required">Ingresar la placa.</div>
-        <div *ngIf="license.errors.minlength">La licencia es de maximo 6 caracteres {{ license.errors.minlength.requiredLength}}</div>
-        <div *ngIf="license.errors.maxlength">La licencia es de maximo 6 caracteres {{ license.errors.maxlength.requiredLength}}</div>
-        <div *ngIf="license.errors.cannotContainSpace">La placa no puede contener espacios</div>
-      </div>
-      <br />
-      <button class="btn btn-primary center-block"
+      <mat-input-container >
+        <input matInput placeholder="Placa" 
+        #licenseCar 
+        formControlName="license" 
+        type="text" 
+        pattern="[a-zA-Z ]{3}[0-9]{3}"
+        class="form-control">
+      </mat-input-container>
+      <mat-error *ngIf="license.touched && license.invalid">
+        <mat-error *ngIf="license.errors.required">Ingresar la placa.</mat-error>
+        <mat-error *ngIf="license.errors.minlength">La licencia es de maximo 6 caracteres {{ license.errors.minlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="license.errors.maxlength">La licencia es de maximo 6 caracteres {{ license.errors.maxlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="license.errors.cannotContainSpace">La placa no puede contener espacios</mat-error>
+      </mat-error>
+      <br>
+      <br>
+      <button mat-raised-button color="primary"
       [disabled]="form.invalid"
       (click)="enterCar(licenseCar)">Ingresar</button>
     </div>
@@ -29,25 +36,36 @@
     <h2 class="title">Ingresar Moto</h2>
     <hr>
     <div class="form-group">
-      <label for="license" class="title items">Placa</label>
-      <input #licenseBike formControlName="license" type="text" class="form-control"/>
-      <div *ngIf="license.touched && license.invalid" class="alert alert-danger">
-        <div *ngIf="license.errors.required">Ingresar la placa.</div>
-        <div *ngIf="license.errors.minlength">La licencia es de maximo 6 caracteres {{ license.errors.minlength.requiredLength}}</div>
-        <div *ngIf="license.errors.maxlength">La licencia es de maximo 6 caracteres {{ license.errors.maxlength.requiredLength}}</div>
-        <div *ngIf="license.errors.cannotContainSpace">La placa no puede contener espacios</div>
-      </div>
+      <mat-input-container>
+        <input matInput placeholder="Placa" 
+        #licenseBike 
+        formControlName="license" 
+        type="text" 
+        class="form-control">
+      </mat-input-container>
+      <mat-error *ngIf="license.touched && license.invalid">
+        <mat-error *ngIf="license.errors.required">Ingresar la placa.</mat-error>
+        <mat-error *ngIf="license.errors.minlength">La licencia es de maximo 6 caracteres {{ license.errors.minlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="license.errors.maxlength">La licencia es de maximo 6 caracteres {{ license.errors.maxlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="license.errors.cannotContainSpace">La placa no puede contener espacios</mat-error>
+      </mat-error>
       <br>
-      <label for="license" class="title items">Cilindraje</label>
-      <input #engine type="number" formControlName="engine" class="form-control">
-      <div *ngIf="engine.touched && engine.invalid" class="alert alert-danger">
-          <div *ngIf="engine.errors.required">Ingresar el cilindraje.</div>
-          <div *ngIf="engine.errors.minlength">El cilindraje es de maximo 6 caracteres {{ engine.errors.minlength.requiredLength}}</div>
-          <div *ngIf="engine.errors.maxlength">El cilindraje es de maximo 6 caracteres {{ engine.errors.maxlength.requiredLength}}</div>
-          <div *ngIf="engine.errors.cannotContainSpace">El cilindraje no puede contener espacios</div>
-        </div>
+      <mat-input-container>
+        <input matInput placeholder="Cilindraje" 
+        #engine 
+        formControlName="engine" 
+        type="number" 
+        class="form-control">
+      </mat-input-container>
+      <mat-error *ngIf="engine.touched && engine.invalid">
+        <mat-error *ngIf="engine.errors.required">Ingresar el cilindraje.</mat-error>
+        <mat-error *ngIf="engine.errors.minlength">El cilindraje es de maximo 6 caracteres {{ engine.errors.minlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="engine.errors.maxlength">El cilindraje es de maximo 6 caracteres {{ engine.errors.maxlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="engine.errors.cannotContainSpace">La placa no puede contener espacios</mat-error>
+      </mat-error>
       <br />
-      <button class="btn btn-primary center-block"
+      <br >
+      <button mat-raised-button color="primary"
       [disabled]="form.invalid"
       (click)="enterBike(licenseBike, engine)">Ingresar</button>
     </div>

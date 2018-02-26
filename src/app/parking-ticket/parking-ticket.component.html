@@ -1,31 +1,14 @@
-<h2 class="title">Tiquete de Cobro</h2>
-<hr>
-<div class="wrapper">
-  <div class="box a title">
-    <label class="sub_title">Valor a pagar</label>
-    <br>
-    <div>
-      <label class="value"> $5000</label>
-    </div>
-  </div>
-  <div class="box b ticket">
-    <div>Placa: 
-      <label></label>
-    </div>
-    <div>Hora Entrada:
-      <label></label>
-    </div>
-    <div>Hora Salida:
-      <label></label>
-    </div>
-    <br>
-    <div>
-      <button 
-      class="btn btn-primary center-left"
-      (click)="onClick($event)">Cobrar</button>
-    </div>
-  </div>
-</div>
 
-   
+  <h2 mat-dialog-title>Tiquete de Cobro</h2>
+  <mat-dialog-content>  
+    <div><img src="/assets/license.png"> Placa: {{ vehicle.license }}</div>
+    <br>
+    <div><img src="/assets/hour.png"> Fecha Entrada: {{ vehicle.dateArrive }}</div>
+    <br>
+    <div><img src="/assets/hour.png"> Fecha Salida: {{ vehicle.dateOut }}</div>
+    <br>
+    <div class="cobrar"><img src="/assets/money.png"> Valor a cobrar: ${{ vehicle.valueToPay }}</div>
+  </mat-dialog-content>
+  <br>
+  <button mat-raised-button mat-dialog-close="yes">Cobrar</button>
 

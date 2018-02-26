@@ -1,45 +1,17 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { ParkingGuardService } from '../services/parking-guard.service';
+import { Component, Inject, InjectionToken } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-parking-ticket',
   templateUrl: './parking-ticket.component.html',
   styleUrls: ['./parking-ticket.component.css']
 })
+export class ParkingTicketComponent {
 
-export class ParkingTicketComponent implements OnInit {
-  interval: any;
-  idRecive: string;
-  vehicleRecive: any[];
+  vehicle: any[];
 
-  constructor(private service: ParkingGuardService) { }
-
-  ngOnInit() {
+  constructor(@Inject(MAT_DIALOG_DATA) data: any[]) {
+    this.vehicle = data;
+    console.log('Data: ', JSON.stringify(data));
   }
-
-  reciveData(id, vehicle) {
-    this.idRecive = id;
-    this.vehicleRecive = vehicle;
-    console.log('recibiendo data' + this.idRecive + ' ' + JSON.stringify(this.vehicleRecive));
-    const headers = new Headers({'Content-Type': 'application/json'});
-    this.service.outVehicle(this.idRecive, this.vehicleRecive)
-    .subscribe(response => {
-      console.log(response.json());
-    });
-    console.log('sali');
-  }
-
-  outVehicle(id?, vehicle?) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    this.service.outVehicle(this.idRecive, this.vehicleRecive)
-    .subscribe(response => {
-      console.log(response.json());
-    });
-    console.log('sali');
-  }
-
-  onClick() {
-    this.outVehicle();
-  }
-
 }

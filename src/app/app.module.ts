@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MatDialog, MatDialogModule, MatInputModule, MatButtonModule } from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { EnterVehicleComponent } from './enter-vehicle/enter-vehicle.component';
 import { VehiclesParkingComponent } from './vehicles-parking/vehicles-parking.component';
-import { ParkingTicketComponent } from './parking-ticket/parking-ticket.component';
 import { ParkingGuardService } from './services/parking-guard.service';
-import { AppError } from './common/app-error';
-
-
+import { ParkingTicketComponent } from './parking-ticket/parking-ticket.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,18 @@ import { AppError } from './common/app-error';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ParkingTicketComponent
   ],
   providers: [
-    ParkingTicketComponent,
     ParkingGuardService,
-    AppError
+    ParkingTicketComponent
   ],
   bootstrap: [AppComponent]
 })
