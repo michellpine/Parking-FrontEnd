@@ -1,13 +1,14 @@
 
   <h2 mat-dialog-title>Tiquete de Cobro</h2>
   <mat-dialog-content>  
-    <div><img src="/assets/license.png"> Placa: {{ vehicle.license }}</div>
+    <div><img src="/assets/license.png"> Placa: {{ vehicle.license  | uppercase}}</div>
     <br>
     <div><img src="/assets/hour.png"> Fecha Entrada: {{ vehicle.dateArrive }}</div>
     <br>
     <div><img src="/assets/hour.png"> Fecha Salida: {{ vehicle.dateOut }}</div>
     <br>
-    <div class="cobrar"><img src="/assets/money.png"> Valor a cobrar: ${{ vehicle.valueToPay }}</div>
+    <div class="cobrar"><img src="/assets/money.png"> Valor a cobrar: {{ vehicle.valueToPay | currency }}</div>
+    <br>
   </mat-dialog-content>
   <br>
   <button mat-raised-button mat-dialog-close="yes">Cobrar</button>

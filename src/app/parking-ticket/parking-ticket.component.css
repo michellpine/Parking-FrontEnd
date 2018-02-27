@@ -16,7 +16,6 @@
 }
 .mat-dialog-content {
     font-size: 1.4em;
-    background-color: whitesmoke;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -34,3 +33,6 @@
     background-color:  #015249;
 }
 
+.cobrar {
+    color: #015249;
+}

@@ -32,13 +32,13 @@ export class VehiclesParkingComponent implements OnInit {
   }
 
   outVehicle(id, vehicle) {
-    const headers = new Headers({'Content-Type': 'application/json'});
+  const headers = new Headers({'Content-Type': 'application/json'});
     this.service.outVehicle(id, vehicle)
     .subscribe(response => {
       vehicle = response.json();
       this.dialog.open(ParkingTicketComponent, {
-        height: '390px',
-        width: '470px',
+        height: '420px',
+        width: '490px',
         data: { 'license':    vehicle.vehicle.license,
                 'dateArrive': vehicle.dateArrive,
                 'dateOut':    vehicle.dateOut,

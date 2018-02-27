@@ -13,6 +13,7 @@ declare var $: any;
 export class EnterVehicleComponent  {
   form: FormGroup;
   vehicles: any[];
+  troubles: any;
 
   constructor(private service: ParkingGuardService, fb: FormBuilder) {
     this.form = fb.group({
@@ -41,7 +42,12 @@ export class EnterVehicleComponent  {
       this.service.enterCar(car)
       .subscribe(response => {
         console.log(response.toString());
-      });
+      },
+      (error: Response) => {
+        this.troubles = error.json();
+        this.parseErrors(this.troubles.message);
+      }
+    );
   }
 
   enterBike(licenseBike: HTMLInputElement, cc: HTMLInputElement) {
@@ -51,8 +57,14 @@ export class EnterVehicleComponent  {
     this.service.enterBike(bike)
     .subscribe(response => {
       console.log(response.toString());
-    });
+    },
+    (error: Response) => {
+      this.troubles = error.json();
+      this.parseErrors(this.troubles.message);
+    }
+  );
 }
+
 
   tabVehicle(vehicle) {
    let i, tabcontent, tablinks;
@@ -73,6 +85,24 @@ export class EnterVehicleComponent  {
 
   get engine () {
     return this.form.get('engine');
+  }
+
+  parseErrors (err: string) {
+    if ( err === 'Vehicle cannot enter, there are not more cells available for motorcycles') {
+      alert('No hay mas parqueaderos disponibles para motos');
+    }
+    if ( err === 'Vehicle cannot enter, there are not more cells available for cars') {
+      alert('No hay mas parqueaderos disponibles para carros');
+    }
+    if ( err === 'Vehicle cannot enter, license begin for A and today is not available day for it') {
+      alert('El vehiculo no puede ingresar. Hoy no es un dia habil para las placas que empiezan por A');
+    }
+    if ( err === 'Please enter the engine for the motorcycle') {
+      alert('Ingrese el cilindraje de la moto');
+    }
+    if ( err === 'Please remove the engine for the car') {
+      alert('No es necesario el cilindraje para carros');
+    }
   }
 }
 

@@ -1,6 +1,13 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { ParkingGuardService } from '../services/parking-guard.service';
 
 export class LicenseValidators {
+    vehicles: any[];
+    license:  any[];
+
+    constructor(public service: ParkingGuardService) {
+    }
+
     static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
         if ((control.value as string).indexOf(' ') >= 0) {
             return { cannotContainSpace: true };

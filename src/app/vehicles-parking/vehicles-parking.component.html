@@ -12,10 +12,17 @@
   </thead>
   <tbody>
     <tr *ngFor="let vehicle of vehicles">
-      <td>{{ vehicle.vehicle.license }}</td>
-      <td>{{ vehicle.vehicleType }}</td>
+      <td>{{ vehicle.vehicle.license | uppercase }}</td>
+      <td *ngIf="vehicle.vehicleType === 'CAR'">Carro</td>
+      <td *ngIf="vehicle.vehicleType === 'BYKE'">Moto</td>
       <td>{{ vehicle.dateArrive }}</td>
-      <td><span class="glyphicon glyphicon-remove-sign" mat-button (click)="outVehicle(vehicle.id, vehicle)"></span></td>
+      <td>
+        <span 
+          class="glyphicon glyphicon-remove-sign" 
+          mat-button 
+          (click)="outVehicle(vehicle.id, vehicle)">
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>
